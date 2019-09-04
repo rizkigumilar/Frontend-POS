@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import '../assets/navbar.css';
-
-
-
+import { connect } from 'react-redux';
 class Cart extends Component {
 
     render() {
@@ -15,5 +12,6 @@ class Cart extends Component {
         );
     }
 }
+
 
 export default Cart;

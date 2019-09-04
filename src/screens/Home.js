@@ -8,7 +8,14 @@ import ListItem from '../components/ListItem';
 
 
 class Home extends Component {
+    state = {
+        tmp: ''
+    }
 
+    test = () => {
+        this.setState({ tmp: {} })
+        this.setState({ tmp: [] })
+    }
     render() {
         return (
             <div >
@@ -17,11 +24,11 @@ class Home extends Component {
                     <SideBar />
                 </div>
                 <div style={{ float: 'left', width: '27%', height: '80px', boxShadow: '2px 1px 7px #999' }}>
-                    <Cart />
-                    <CartItem />
+                    <Cart  />
+                    <CartItem tmp={this.state.tmp}/>
                 </div>
                 <div>
-                    <ListItem />
+                    <ListItem test={this.test} />
                 </div>
             </div>
         );

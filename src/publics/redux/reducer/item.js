@@ -3,6 +3,7 @@ const initialState = {
     isLoading: false,
     isFulfilled: false,
     isRejected: false,
+    cartList: []
 }
 
 const item = (state = initialState, action) => {
@@ -67,6 +68,11 @@ const item = (state = initialState, action) => {
                 isFulfilled: true,
                 itemList: [state.itemList, action.payload.data[0]]
             };
+        case 'ADD_CART':
+            return {
+                ...state,
+                cartList: action.newValue
+            }
         default:
             return state;
     }
