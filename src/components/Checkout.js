@@ -95,9 +95,9 @@ class Add extends Component {
         };
         return (
             <div>
-                <a onClick={this.toggle}>
-                    <img src="https://cdn1.iconfinder.com/data/icons/social-messaging-ui-color/254000/04-512.png" style={{ height: '45px', width: '45px', float: 'left', marginLeft: '20px', marginTop: '50px' }} />
-                </a>
+                <button onClick={this.toggle} style={{ width: '400px', height: '61px', marginTop: '672px', backgroundColor: '#57CAD5' }}>
+                    Checkout
+                </button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className="{this.props.className} modal-lg">
                     <b style={{ fontSize: '25px', textAlign: 'center' }}>Add Item</b>
                     <ModalBody>
