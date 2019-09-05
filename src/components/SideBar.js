@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Add from './Add';
+import History from '../screens/History'
 
 class SideBar extends Component {
 
@@ -10,7 +11,7 @@ class SideBar extends Component {
                 {localStorage.name != null ?
                     <div>
                         <img src="https://www.kjppack.com/wp-content/uploads/2018/10/sendok-dan-garpu.png" style={{ height: '45px', width: '45px', float: 'left', marginLeft: '20px', marginTop: '30px' }} />
-                        <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/clipboard-344-412910.png" style={{ height: '45px', width: '45px', float: 'left', marginLeft: '20px', marginTop: '50px' }} />
+                        <History />
                         <Add />
                         <Link to="/menu/logout"><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxYnP5ivADkf4M5mj2RJVAu98BIG4JPa8_wVdsR0ktc2Cykwip' style={{ height: '45px', width: '45px', float: 'left', marginLeft: '20px', marginTop: '50px' }} /></Link>
                     </div> :

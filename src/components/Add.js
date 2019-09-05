@@ -185,7 +185,7 @@ class Add extends Component {
 }
 const mapStateToProps = state => {
     return {
-        book: state.book
+        item: state.item
     };
 };
 export default connect(mapStateToProps)(Add);

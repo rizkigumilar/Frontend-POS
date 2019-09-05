@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-let url = `http://localhost:3030`
+let url = `https://pos-coffee.herokuapp.com`
 
 export const login = (data) => {
     return {

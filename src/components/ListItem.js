@@ -4,6 +4,8 @@ import '../assets/listitem.css';
 import { Link } from 'react-router-dom';
 
 import { getitem } from '../publics/redux/action/item';
+import { getCart, postCart, deleteCart } from '../publics/redux/action/buy';
+
 
 
 
@@ -19,19 +21,36 @@ class Item extends Component {
         await this.props.dispatch(getitem());
         this.setState({
             items: this.props.item.itemList
-        });
+        })
+        await this.props.dispatch(getCart())
     };
     check = (data) => {
         let index = this.state.cart.indexOf(data)
         if (index === -1) {
             this.state.cart.push(data)
+            let result = {
+                idItem: data.idItem,
+                qty: 1
+            }
+            this.props.dispatch(postCart(result))
+                .then(() => {
+                    this.props.dispatch(getCart())
+                        .then(() => {
+                            this.props.test()
+                        })
+                })
         }
         else {
             this.state.cart.splice(index, 1)
+            this.props.dispatch(deleteCart(data.idItem))
+                .then(() => {
+                    this.props.dispatch(getCart())
+                        .then(() => {
+                            this.props.test()
+                        })
+                })
         }
         this.setState({ cart: this.state.cart })
-        this.props.dispatch({ type: 'ADD_CART', newValue: this.state.cart })
-        this.props.test()
         console.log(this.state.cart)
     }
 
@@ -86,6 +105,7 @@ class Item extends Component {
 const mapStateToProps = state => {
     return {
         item: state.item.itemList,
+        cart: state.item.cartList
     };
 };
 
